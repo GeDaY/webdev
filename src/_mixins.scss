@@ -1,0 +1,76 @@
+@mixin flex(
+  $direction: row,
+  $justify: space-between,
+  $align: center,
+  $wrap: wrap
+) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+  flex-wrap: $wrap;
+}
+
+// mixins for popular breakpoints
+@mixin desktop {
+  @media screen and (max-width: 1200px) {
+    @content;
+  }
+}
+@mixin laptop {
+  @media screen and (max-width: 992px) {
+    @content;
+  }
+}
+@mixin tablets {
+  @media screen and (max-width: 768px) {
+    @content;
+  }
+}
+@mixin phones {
+  @media screen and (max-width: 480px) {
+    @content;
+  }
+}
+
+// call mixin
+// footer {
+// @include phones{ background-color: red;}
+// }
+
+// =========================================
+
+// @mixin for-phone-only {
+//   @media (max-width: 599px) {
+//     @content;
+//   }
+// }
+// @mixin for-tablet-portrait-up {
+//   @media (min-width: 600px) {
+//     @content;
+//   }
+// }
+// @mixin for-tablet-landscape-up {
+//   @media (min-width: 900px) {
+//     @content;
+//   }
+// }
+// @mixin for-desktop-up {
+//   @media (min-width: 1200px) {
+//     @content;
+//   }
+// }
+// @mixin for-big-desktop-up {
+//   @media (min-width: 1800px) {
+//     @content;
+//   }
+// }
+
+// // usage
+// .my-box {
+//   padding: 10px;
+
+//   @include for-desktop-up {
+//     padding: 20px;
+//   }
+// }

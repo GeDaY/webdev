@@ -1,0 +1,410 @@
+/***
+    The new CSS reset - version 1.7.2 (last updated 23.6.2022)
+    GitHub page: https://github.com/elad2412/the-new-css-reset
+***/
+/*
+    Remove all the styles of the "User-Agent-Stylesheet", except for the 'display' property
+    - The "symbol *" part is to solve Firefox SVG sprite bug
+ */
+*:where(:not(html, iframe, canvas, img, svg, video):not(svg *, symbol *)) {
+  all: unset;
+  display: revert;
+}
+
+/* Preferred box-sizing value */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Reapply the pointer cursor for anchor tags */
+a,
+button {
+  cursor: revert;
+}
+
+/* Remove list styles (bullets/numbers) */
+ol,
+ul,
+menu {
+  list-style: none;
+}
+
+/* For images to not be able to exceed their container */
+img {
+  max-width: 100%;
+}
+
+/* removes spacing between cells in tables */
+table {
+  border-collapse: collapse;
+}
+
+/* revert the 'white-space' property for textarea elements on Safari */
+textarea {
+  white-space: revert;
+}
+
+/* minimum style to allow to style meter element */
+meter {
+  -webkit-appearance: revert;
+  -moz-appearance: revert;
+       appearance: revert;
+}
+
+/* reset default text opacity of input placeholder */
+::-moz-placeholder {
+  color: unset;
+}
+:-ms-input-placeholder {
+  color: unset;
+}
+::placeholder {
+  color: unset;
+}
+
+/* fix the feature of 'hidden' attribute.
+ display:revert; revert to element instead of attribute */
+:where([hidden]) {
+  display: none;
+}
+
+/* revert for bug in Chromium browsers
+ - fix for the content editable attribute will work properly.
+ - webkit-user-select: auto; added for Safari in case of using user-select:none on wrapper element*/
+:where([contenteditable]:not([contenteditable=false])) {
+  -moz-user-modify: read-write;
+  -webkit-user-modify: read-write;
+  overflow-wrap: break-word;
+}
+
+/* apply back the draggable feature - exist only in Chromium and Safari */
+:where([draggable=true]) {
+  -webkit-user-drag: element;
+}
+
+/* roboto-regular - latin */
+@font-face {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  src: url("../fonts/roboto-v30-latin-regular.eot"); /* IE9 Compat Modes */
+  src: local(""), url("../fonts/roboto-v30-latin-regular.eot?#iefix") format("embedded-opentype"), url("../fonts/roboto-v30-latin-regular.woff2") format("woff2"), url("../fonts/roboto-v30-latin-regular.woff") format("woff"), url("../fonts/roboto-v30-latin-regular.ttf") format("truetype"), url("../fonts/roboto-v30-latin-regular.svg#Roboto") format("svg"); /* Legacy iOS */
+}
+/* roboto-500 - latin */
+@font-face {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 500;
+  src: url("../fonts/roboto-v30-latin-500.eot"); /* IE9 Compat Modes */
+  src: local(""), url("../fonts/roboto-v30-latin-500.eot?#iefix") format("embedded-opentype"), url("../fonts/roboto-v30-latin-500.woff2") format("woff2"), url("../fonts/roboto-v30-latin-500.woff") format("woff"), url("../fonts/roboto-v30-latin-500.ttf") format("truetype"), url("../fonts/roboto-v30-latin-500.svg#Roboto") format("svg"); /* Legacy iOS */
+}
+/* roboto-700 - latin */
+@font-face {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 700;
+  src: url("../fonts/roboto-v30-latin-700.eot"); /* IE9 Compat Modes */
+  src: local(""), url("../fonts/roboto-v30-latin-700.eot?#iefix") format("embedded-opentype"), url("../fonts/roboto-v30-latin-700.woff2") format("woff2"), url("../fonts/roboto-v30-latin-700.woff") format("woff"), url("../fonts/roboto-v30-latin-700.ttf") format("truetype"), url("../fonts/roboto-v30-latin-700.svg#Roboto") format("svg"); /* Legacy iOS */
+}
+body {
+  font-family: "Roboto", Arial, Helvetica, sans-serif;
+}
+
+.container {
+  max-width: 1062px;
+  margin: 0 auto;
+}
+
+.header {
+  color: white;
+  background: url(../imgs/bg-image.png) center/cover no-repeat;
+}
+.header .flex-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  min-height: 744px;
+}
+.header .navbar {
+  margin: 10px 0 80px;
+}
+.header .navbar-nav {
+  width: 550px;
+  justify-content: space-between;
+  align-items: center;
+}
+.header .navbar-nav .nav-link {
+  color: white;
+}
+.header .navbar-nav .nav-link__text {
+  opacity: 0.8;
+  padding: 0 0 5px;
+}
+.header .navbar-nav .nav-link__text:hover {
+  opacity: 1;
+  border-bottom: white 1px solid;
+}
+.header .header__wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+  margin-bottom: 90px;
+}
+.header .header__wrapper .header__title {
+  margin-bottom: 20px;
+  font-weight: 700;
+  font-size: 64px;
+  line-height: 75px;
+  text-transform: uppercase;
+}
+.header .header__wrapper .header__text {
+  max-width: 55%;
+  margin-bottom: 30px;
+  text-align: center;
+  font-size: 18px;
+  line-height: 140%;
+}
+.header .navbar__social {
+  width: 20%;
+}
+
+.btn {
+  padding: 15px 47px;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 16px;
+  text-transform: uppercase;
+  border-radius: 0;
+  border: none;
+  background-color: #00afdb;
+}
+
+.represent {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 118px 0;
+}
+
+.content {
+  max-width: 40%;
+}
+
+.content__title {
+  margin-bottom: 20px;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 28px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #373737;
+}
+
+.content__text {
+  margin-bottom: 30px;
+  font-size: 14px;
+  line-height: 140%;
+  color: #4e4e4e;
+}
+
+.bg-community {
+  background-color: #f5f6f7;
+  padding: 130px 0;
+}
+
+.community {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.community .community-card {
+  flex-basis: 28%;
+  text-align: center;
+}
+.community .community-card .card__img {
+  max-width: 45px;
+  margin-bottom: 20px;
+}
+.community .community-card .card__title {
+  margin-bottom: 20px;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 20px;
+  letter-spacing: 2.4px;
+  text-transform: uppercase;
+  color: #373737;
+}
+.community .community-card .card__text {
+  font-size: 14px;
+  line-height: 140%;
+  color: #4e4e4e;
+}
+.community .slider {
+  flex-basis: 70%;
+}
+.community .slider .slider__pagination {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-end;
+  flex-wrap: nowrap;
+  position: absolute;
+  right: 0;
+  top: -54px;
+}
+.community .slider .slider__pagination .slider__text {
+  display: inline-block;
+  margin-bottom: 0;
+  padding: 0 14px;
+  font-size: 18px;
+  line-height: 100%;
+  color: #373737;
+}
+.community .slider .slider__images {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+  left: 400px;
+}
+.community .slider .slider__images .slider__image {
+  margin-right: 30px;
+}
+
+.implement {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 142px 0;
+}
+
+.bg-sign-up {
+  background: url(../imgs/pexels-christina-morillo.png) center/cover no-repeat;
+  padding: 200px 0 220px;
+}
+
+.sign-up {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+}
+.sign-up .content__title {
+  margin-bottom: 30px;
+  color: white;
+}
+.sign-up .input-group {
+  max-width: 40%;
+}
+.sign-up .input-group .form-control {
+  padding: 10px 0 10px 24px;
+  border-radius: 0;
+}
+.sign-up .input-group .btn {
+  padding: 0;
+  width: 66px;
+  height: 46px;
+  color: #00afdb;
+}
+
+.bg-download {
+  background-color: #f5f6f7;
+  padding: 120px 0 180px;
+}
+
+.download {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+}
+.download .content__text {
+  max-width: 46%;
+  text-align: center;
+}
+.download .btn {
+  position: relative;
+  margin-right: 30px;
+  padding: 15px 77px 15px 17px;
+}
+.download .btn:last-child {
+  margin-right: 0;
+}
+.download .btn:first-child::after {
+  content: "";
+  display: inline-block;
+  background: #009cc2 url(../imgs/svg/btn-store-icon-apple.svg) no-repeat center;
+  width: 59px;
+  height: 46px;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+.download .btn:nth-child(2)::after {
+  content: "";
+  display: inline-block;
+  background: #009cc2 url(../imgs/svg/btn-store-icon-android.svg) no-repeat center;
+  width: 59px;
+  height: 46px;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.footer {
+  color: white;
+}
+.footer .bg-footer {
+  background-color: #000000;
+  padding: 60px 0 80px;
+}
+.footer .navbar {
+  display: block;
+}
+.footer .navbar-nav {
+  max-width: 100%;
+  justify-content: space-between;
+  align-items: center;
+}
+.footer .navbar-nav .nav-item:nth-child(4) {
+  flex-grow: 1;
+}
+.footer .navbar-nav .nav-item__img {
+  text-align: center;
+  margin-right: 130px;
+}
+.footer .navbar-nav .nav-link {
+  margin-right: 40px;
+  color: white;
+}
+.footer .navbar-nav .nav-link__text {
+  opacity: 0.8;
+  padding: 0 0 5px;
+}
+.footer .navbar-nav .nav-link__text:hover {
+  opacity: 1;
+  border-bottom: white 1px solid;
+}
+.footer .navbar-nav .nav-item__text {
+  margin-bottom: 0;
+  font-size: 14px;
+  line-height: 140%;
+  color: #818181;
+}/*# sourceMappingURL=style.css.map */
