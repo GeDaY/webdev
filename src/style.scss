@@ -72,6 +72,14 @@ body {
 
   .navbar__social {
     width: 20%;
+
+    .nav-item {
+      transition: 300ms;
+    }
+
+    .nav-item:hover {
+      transform: scale(1.5);
+    }
   }
 }
 
@@ -84,6 +92,15 @@ body {
   border-radius: 0;
   border: none;
   background-color: #00afdb;
+  transition: 300ms;
+}
+
+.btn:hover {
+  background-color: $hover-color;
+}
+
+.btn-primary {
+  --bs-btn-hover-bg: #009cc2;
 }
 
 //  header styles end
@@ -121,6 +138,7 @@ body {
 .bg-community {
   background-color: #f5f6f7;
   padding: 130px 0;
+  overflow: hidden;
 }
 
 .community {
@@ -157,10 +175,18 @@ body {
     flex-basis: 70%;
 
     .slider__pagination {
-      @include flex(row, center, flex-end, nowrap);
+      @include flex(row, center, center, nowrap);
       position: absolute;
       right: 0;
       top: -54px;
+
+      img {
+        min-height: 16px;
+      }
+
+      img:hover {
+        opacity: 0.5;
+      }
 
       .slider__text {
         display: inline-block;
@@ -245,7 +271,7 @@ body {
   .btn:first-child::after {
     content: '';
     display: inline-block;
-    background: #009cc2 url(../imgs/svg/btn-store-icon-apple.svg) no-repeat
+    background: $hover-color url(../imgs/svg/btn-store-icon-apple.svg) no-repeat
       center;
     width: 59px;
     height: 46px;
@@ -261,8 +287,8 @@ body {
   .btn:nth-child(2)::after {
     content: '';
     display: inline-block;
-    background: #009cc2 url(../imgs/svg/btn-store-icon-android.svg) no-repeat
-      center;
+    background: $hover-color url(../imgs/svg/btn-store-icon-android.svg)
+      no-repeat center;
     width: 59px;
     height: 46px;
     position: absolute;

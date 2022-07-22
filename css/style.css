@@ -173,6 +173,12 @@ body {
 .header .navbar__social {
   width: 20%;
 }
+.header .navbar__social .nav-item {
+  transition: 300ms;
+}
+.header .navbar__social .nav-item:hover {
+  transform: scale(1.5);
+}
 
 .btn {
   padding: 15px 47px;
@@ -183,6 +189,15 @@ body {
   border-radius: 0;
   border: none;
   background-color: #00afdb;
+  transition: 300ms;
+}
+
+.btn:hover {
+  background-color: #009cc2;
+}
+
+.btn-primary {
+  --bs-btn-hover-bg: #009cc2;
 }
 
 .represent {
@@ -218,6 +233,7 @@ body {
 .bg-community {
   background-color: #f5f6f7;
   padding: 130px 0;
+  overflow: hidden;
 }
 
 .community {
@@ -257,11 +273,17 @@ body {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  align-items: flex-end;
+  align-items: center;
   flex-wrap: nowrap;
   position: absolute;
   right: 0;
   top: -54px;
+}
+.community .slider .slider__pagination img {
+  min-height: 16px;
+}
+.community .slider .slider__pagination img:hover {
+  opacity: 0.5;
 }
 .community .slider .slider__pagination .slider__text {
   display: inline-block;
