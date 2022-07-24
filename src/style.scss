@@ -23,16 +23,36 @@ body {
   .flex-wrapper {
     @include flex(column, space-between, center, wrap);
     min-height: 744px;
+    @include phones {
+      display: block;
+      min-height: 444px;
+    }
   }
 
   .navbar {
     margin: 10px 0 80px;
+    @include phones {
+      display: block;
+      margin: 0 10px 50px;
+    }
   }
 
   .navbar-nav {
-    width: 550px;
-    justify-content: space-between;
     align-items: center;
+    @include flex;
+    @include laptop {
+      @include flex;
+    }
+
+    .nav-item {
+      padding: 0 45px;
+      @include tablets {
+        padding: 0 20px;
+      }
+      @include phones {
+        padding: 0 10px;
+      }
+    }
 
     .nav-link {
       color: $primary-color;
@@ -47,6 +67,29 @@ body {
       opacity: 1;
       border-bottom: $primary-color 1px solid;
     }
+
+    .nav-item-menu {
+      display: none;
+      @include phones {
+        display: inline-block;
+      }
+
+      img {
+        filter: brightness(0) invert(1);
+        opacity: 0.8;
+        width: 40px;
+      }
+
+      img:hover {
+        opacity: 1;
+      }
+    }
+
+    .nav-item-hide {
+      @include phones {
+        display: none;
+      }
+    }
   }
 
   .header__wrapper {
@@ -59,6 +102,13 @@ body {
       font-size: 64px;
       line-height: 75px;
       text-transform: uppercase;
+      @include tablets {
+        font-size: 40px;
+        line-height: 60px;
+      }
+      @include phones {
+        font-size: 25px;
+      }
     }
 
     .header__text {
@@ -67,11 +117,30 @@ body {
       text-align: center;
       font-size: 18px;
       line-height: 140%;
+      @include tablets {
+        font-size: 14px;
+        line-height: 140%;
+      }
+      @include phones {
+        font-size: 12px;
+      }
     }
   }
 
   .navbar__social {
-    width: 20%;
+    flex-direction: column;
+    width: 60%;
+    @include phones {
+      margin: 0 auto;
+      padding-bottom: 40px;
+    }
+
+    .nav-item {
+      padding: 0 15px;
+      @include phones {
+        padding: 0 10px;
+      }
+    }
 
     .nav-item {
       transition: 300ms;
@@ -112,10 +181,21 @@ body {
 .represent {
   @include flex;
   margin: 118px 0;
+  @include tablets {
+    margin: 50px 0;
+    justify-content: space-around;
+    text-align: center;
+  }
 }
 
 .content {
   max-width: 40%;
+  @include tablets {
+    margin-bottom: 40px;
+  }
+  @include phones {
+    max-width: 70%;
+  }
 }
 
 .content__title {
@@ -126,6 +206,14 @@ body {
   letter-spacing: 1px;
   text-transform: uppercase;
   color: #373737;
+  @include tablets {
+    font-size: 20px;
+    line-height: 22px;
+  }
+  @include phones {
+    font-size: 14px;
+    line-height: 16px;
+  }
 }
 
 .content__text {
@@ -133,21 +221,39 @@ body {
   font-size: 14px;
   line-height: 140%;
   color: #4e4e4e;
+  @include phones {
+    font-size: 12px;
+    line-height: 140%;
+  }
 }
 
 .bg-community {
   background-color: #f5f6f7;
   padding: 130px 0;
   overflow: hidden;
+  @include tablets {
+    padding: 50px 0;
+  }
 }
 
 .community {
   position: relative;
   @include flex;
+  @include tablets {
+    justify-content: space-around;
+  }
 
   .community-card {
     flex-basis: 28%;
     text-align: center;
+    @include tablets {
+      flex-basis: 50%;
+      margin-bottom: 30px;
+    }
+    @include phones {
+      flex-basis: 80%;
+      margin-bottom: 20px;
+    }
 
     .card__img {
       max-width: 45px;
@@ -173,12 +279,19 @@ body {
 
   .slider {
     flex-basis: 70%;
+    @include tablets {
+      flex-basis: 100%;
+    }
 
     .slider__pagination {
       @include flex(row, center, center, nowrap);
       position: absolute;
       right: 0;
       top: -54px;
+      @include tablets {
+        position: static;
+        margin-bottom: 20px;
+      }
 
       img {
         min-height: 16px;
@@ -202,9 +315,24 @@ body {
       position: relative;
       @include flex(row, center, center, nowrap);
       left: 400px;
+      @include tablets {
+        left: 0;
+      }
 
       .slider__image {
         margin-right: 30px;
+        @include tablets {
+          max-width: 30%;
+        }
+        @include phones {
+          margin-right: 10px;
+        }
+      }
+
+      @include tablets {
+        .slider__image:last-child {
+          margin-right: 0;
+        }
       }
     }
   }
@@ -213,11 +341,29 @@ body {
 .implement {
   @include flex;
   margin: 142px 0;
+  @include tablets {
+    margin: 50px 0;
+    justify-content: space-around;
+    text-align: center;
+  }
+
+  .content {
+    @include tablets {
+      margin-top: 40px;
+      margin-bottom: 0;
+    }
+  }
 }
 
 .bg-sign-up {
   background: url(../imgs/pexels-christina-morillo.png) center / cover no-repeat;
   padding: 200px 0 220px;
+  @include tablets {
+    padding: 100px 0 120px;
+  }
+  @include phones {
+    padding: 50px 0 60px;
+  }
 }
 
 .sign-up {
@@ -226,14 +372,30 @@ body {
   .content__title {
     margin-bottom: 30px;
     color: $primary-color;
+    @include phones {
+      font-size: 16px;
+    }
   }
 
   .input-group {
     max-width: 40%;
+    @include laptop {
+      max-width: 50%;
+    }
+    @include tablets {
+      max-width: 70%;
+    }
+    @include phones {
+      max-width: 90%;
+    }
 
     .form-control {
       padding: 10px 0 10px 24px;
       border-radius: 0;
+    }
+
+    .form-control::placeholder {
+      opacity: 0.5;
     }
 
     .btn {
@@ -248,6 +410,12 @@ body {
 .bg-download {
   background-color: #f5f6f7;
   padding: 120px 0 180px;
+  @include tablets {
+    padding: 80px 0 100px;
+  }
+  @include phones {
+    padding: 50px 0 50px;
+  }
 }
 
 .download {
@@ -258,14 +426,28 @@ body {
     text-align: center;
   }
 
+  @include phones {
+    .content__text {
+      max-width: 80%;
+    }
+
+    .content__buttons {
+      @include flex(column, center, center, nowrap);
+    }
+  }
+
   .btn {
     position: relative;
     margin-right: 30px;
     padding: 15px 77px 15px 17px;
+
+    @include phones {
+      margin-right: 0;
+    }
   }
 
   .btn:last-child {
-    margin-right: 0;
+    margin: 10px 0;
   }
 
   .btn:first-child::after {
@@ -278,10 +460,6 @@ body {
     position: absolute;
     top: 0;
     right: 0;
-    // margin-left: 10px;
-    // font-size: 14px;
-    // line-height: 140%;
-    // color: #373737;
   }
 
   .btn:nth-child(2)::after {
@@ -294,10 +472,6 @@ body {
     position: absolute;
     top: 0;
     right: 0;
-    // margin-left: 10px;
-    // font-size: 14px;
-    // line-height: 140%;
-    // color: #373737;
   }
 }
 
@@ -310,6 +484,12 @@ body {
   .bg-footer {
     background-color: #000000;
     padding: 60px 0 80px;
+    @include tablets {
+      padding: 40px 0 60px;
+    }
+    @include phones {
+      padding: 20px 0 30px;
+    }
   }
 
   color: $primary-color;
@@ -319,22 +499,35 @@ body {
   }
 
   .navbar-nav {
-    max-width: 100%;
-    justify-content: space-between;
-    align-items: center;
+    @include flex;
+
+    @include tablets {
+      @include flex(column, center, center, nowrap);
+    }
 
     .nav-item:nth-child(4) {
       flex-grow: 1;
+      @include tablets {
+        flex-grow: 0;
+      }
     }
 
     .nav-item__img {
       text-align: center;
       margin-right: 130px;
+      @include tablets {
+        margin-right: 0;
+        padding-bottom: 20px;
+      }
     }
 
     .nav-link {
       margin-right: 40px;
       color: $primary-color;
+      @include tablets {
+        margin-right: 0;
+        margin-bottom: 5pxpx;
+      }
     }
 
     .nav-link__text {
